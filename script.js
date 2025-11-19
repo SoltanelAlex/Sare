@@ -1,10 +1,11 @@
-// =============================
-//  UPDATE AN DIN FOOTER
+// ============================= 
+//  UPDATE AUTOMAT AN FOOTER
 // =============================
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("y");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
 
 // =============================
 //  FUNCȚIE INCLUDE HTML (NAVBAR + FOOTER)
@@ -35,53 +36,62 @@ function includeHTML(callback) {
   });
 }
 
+
 // =============================
-//  RULEAZĂ TOT CODUL PAGINII DOAR DUPĂ INCLUDE
+//  PORNIM TOATE SCRIPTURILE DUPĂ CE SE ÎNCARCĂ NAVBAR + FOOTER
 // =============================
 includeHTML(() => {
-  console.log("Include HTML încărcat.");
+  console.log("HTML components loaded.");
+
+  // ================ ACTIVARE BURGER MENU ================
+  initMobileMenu();
 
   // ================= FILTRARE PRODUSE =================
   const buttons = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".flashcard");
 
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const filter = btn.dataset.filter;
+  if (buttons.length > 0) {
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
 
-      cards.forEach(card => {
-        if (filter === "all" || card.dataset.category === filter) {
-          card.classList.remove("hide");
-        } else {
-          card.classList.add("hide");
-        }
+        cards.forEach(card => {
+          if (filter === "all" || card.dataset.category === filter) {
+            card.classList.remove("hide");
+          } else {
+            card.classList.add("hide");
+          }
+        });
       });
     });
-  });
+  }
 
   // ================= FADE-IN LA SCROLL =================
   const fadeEls = document.querySelectorAll(".fade-in");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        entry.target.style.transitionDelay = `${index * 0.1}s`;
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+  if (fadeEls.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          entry.target.style.transitionDelay = `${index * 0.1}s`;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  fadeEls.forEach(el => observer.observe(el));
+    fadeEls.forEach(el => observer.observe(el));
+  }
 
-  // ================= POPUP PRODUSE =================
+
+  // ================= POPUP DETALII PRODUS =================
   const popup = document.getElementById("productPopup");
   const popupImg = document.getElementById("popupImage");
   const popupTitle = document.getElementById("popupTitle");
 
-  if (popup) {
+  if (popup && popupImg && popupTitle) {
     const popupClose = popup.querySelector(".popup-close");
 
     document.querySelectorAll(".flashcard img").forEach(img => {
@@ -106,22 +116,22 @@ includeHTML(() => {
     });
   }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  function activateMobileMenu() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("nav");
 
-    if (!menuToggle || !nav) return;
 
-    menuToggle.addEventListener("click", () => {
-      menuToggle.classList.toggle("is-open");
-      nav.classList.toggle("is-open");
+// =============================
+//  FUNCȚIE BURGER MENU
+// =============================
+function initMobileMenu() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.getElementById("primary-nav");
 
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", !expanded);
-    });
-  }
+  if (!menuToggle || !nav) return;
 
-  // Așteptăm încărcarea componentelor
-  setTimeout(activateMobileMenu, 100);
-});
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("is-open");
+    nav.classList.toggle("is-open");
+
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", !expanded);
+  });
+}
