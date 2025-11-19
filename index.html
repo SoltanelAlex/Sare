@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>SARE.ro — Sare alimentară & industrială angro</title>
+  <meta name="description" content="Distribuitor angro de sare alimentară și industrială. Catalog complet, livrări rapide, oferte personalizate pentru parteneri B2B." />
+
+  <link rel="canonical" href="https://sare.ro/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SARE.ro — Sare alimentară & industrială angro" />
+  <meta property="og:description" content="Distribuitor angro. Catalog, livrări rapide, oferte B2B." />
+  <meta property="og:url" content="https://sare.ro/" />
+  <meta property="og:image" content="https://sare.ro/images/og-cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2F6C8F" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32">
+
+  <!-- 🔵 CSS MODULAR -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/products.css">
+  <link rel="stylesheet" href="styles/about.css">
+  <link rel="stylesheet" href="styles/contact.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/utilities.css">
+
+</head>
+
+<body>
+
+  <!-- 🔵 NAVBAR COMPONENT -->
+  <div w3-include-html="components/navbar.html"></div>
+
+  <!-- HERO -->
+  <main id="home">
+    <section class="hero hero-bg">
+      <div class="container hero-grid">
+        <div>
+          <h1>Toate produsele <span class="accent">Salt Star</span><br> pentru <em>alimente</em> & <em>industrie</em>.</h1>
+
+          <p class="lead">
+            Garanția calității, trasabilitate completă și oferte angro personalizate.
+            Bulk, saci 25 kg, big-bag sau vrac – în funcție de necesar.
+          </p>
+
+          <a href="contact.html" class="btn primary">Cere ofertă</a>
+          <a href="produse.html" class="btn secondary">Vezi produsele</a>
+        </div>
+
+        <div></div>
+      </div>
+    </section>
+
+    <!-- PRODUSE POPULARE -->
+    <section id="produse-populare">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Produse populare</h2>
+          <p>O selecție din gama noastră de condimente și ingrediente.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="flashcard">
+            <img src="images/borcan-boia-dulce-300x300.jpg" alt="Boia dulce 600g">
+            <div class="overlay"><a href="contact.html" class="btn primary">Cere ofertă</a></div>
+            <h3>Boia dulce – 600g</h3>
+          </article>
+
+          <article class="flashcard">
+            <img src="images/borcan-busuioc-300x300.jpg" alt="Busuioc mărunțit 200g">
+            <div class="overlay"><a href="contact.html" class="btn primary">Cere ofertă</a></div>
+            <h3>Busuioc mărunțit – 200g</h3>
+          </article>
+
+          <article class="flashcard">
+            <img src="images/borcan-ceapa-fulgi-300x300.jpg" alt="Ceapă fulgi 200g">
+            <div class="overlay"><a href="contact.html" class="btn primary">Cere ofertă</a></div>
+            <h3>Ceapă fulgi – 200g</h3>
+          </article>
+
+          <article class="flashcard">
+            <img src="images/stafide-aurii-plic-300x300.jpg" alt="Stafide aurii 80g">
+            <div class="overlay"><a href="contact.html" class="btn primary">Cere ofertă</a></div>
+            <h3>Stafide aurii – 80g</h3>
+          </article>
+        </div>
+
+        <div style="text-align:center; margin-top:24px;">
+          <a href="produse.html" class="btn secondary">Vezi toate produsele</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESPRE PREVIEW -->
+    <section id="despre">
+      <div class="container about">
+        <div>
+          <h2>Experiență și parteneriate de încredere</h2>
+          <p>Suntem o companie românească cu peste 15 ani de experiență în domeniul sării alimentare și industriale. Oferim calitate constantă și servicii rapide clienților din toată țara.</p>
+          <a href="despre.html" class="btn secondary">Află mai mult</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>15+</b><span>ani pe piață</span></div>
+          <div class="stat"><b>24h</b><span>ofertare rapidă</span></div>
+          <div class="stat"><b>1000+</b><span>clienți</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🔵 FOOTER COMPONENT -->
+  <div w3-include-html="components/footer.html"></div>
+
+  <!-- 🔵 Include HTML Script -->
+  <script>
+  function includeHTML() {
+    const elements = document.querySelectorAll("[w3-include-html]");
+    elements.forEach(el => {
+      const file = el.getAttribute("w3-include-html");
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          el.innerHTML = data;
+          el.removeAttribute("w3-include-html");
+          includeHTML();
+        });
+    });
+  }
+  includeHTML();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

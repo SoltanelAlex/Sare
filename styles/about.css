@@ -1,0 +1,55 @@
+/* ABOUT PAGE */
+.page h1 {
+  margin-bottom: 16px;
+}
+
+.page p {
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.page ul {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.page ul li {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* ABOUT section on homepage */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.stat b {
+  font-size: 22px;
+  display: block;
+  color: var(--accent);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+}

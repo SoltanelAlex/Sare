@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Despre noi | SARE.ro</title>
+
+  <!-- CSS IMPORTS -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/products.css">
+  <link rel="stylesheet" href="styles/about.css">
+  <link rel="stylesheet" href="styles/contact.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/utilities.css">
+</head>
+
+<body>
+
+  <!-- 🔵 Navbar component -->
+  <div w3-include-html="components/navbar.html"></div>
+
+  <main class="page">
+    <div class="container">
+      <h1>Despre noi</h1>
+
+      <p><b>Salt Star Corporation</b> este o firmă privată cu capital integral românesc, înființată în 2012. Ne-am remarcat prin prețuri competitive, servicii de calitate și flexibilitate în comunicarea cu clienții.</p>
+
+      <p>Portofoliul nostru acoperă toată țara, cu preponderență în București și în zonele industriale majore. Oferim produse cu calitate controlată și menținem relații puternice cu partenerii noștri.</p>
+
+      <h3>Valorile noastre:</h3>
+      <ul>
+        <li>✔ Calitate constantă și trasabilitate completă</li>
+        <li>✔ Inovație în produse și logistică</li>
+        <li>✔ Respect și profesionalism</li>
+        <li>✔ Parteneriate de lungă durată</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <!-- 🔵 Footer component -->
+  <div w3-include-html="components/footer.html"></div>
+
+  <!-- Include HTML Script -->
+  <script>
+    function includeHTML() {
+      const elements = document.querySelectorAll("[w3-include-html]");
+      elements.forEach(el => {
+        const file = el.getAttribute("w3-include-html");
+        fetch(file)
+          .then(r => r.text())
+          .then(data => {
+            el.innerHTML = data;
+            el.removeAttribute("w3-include-html");
+            includeHTML();
+          });
+      });
+    }
+    includeHTML();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* GRID – PRODUSE (flashcards) */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.flashcard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  background: #fff;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.flashcard img {
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(1.02);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.flashcard h3 {
+  font-size: 15px;
+  margin: 10px 0 14px;
+  color: var(--text);
+}
+
+.flashcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+}
+
+.flashcard:hover img {
+  transform: scale(1.05);
+}
+
+/* OVERLAY BUTTON */
+.flashcard .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flashcard:hover .overlay {
+  opacity: 1;
+}
+
+.flashcard .overlay .btn {
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+/* FILTRE PRODUSE */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.filter-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(47,108,143,0.25);
+}
+
+.flashcard.hide {
+  display: none !important;
+}
+
+/* POPUP PRODUSE */
+.product-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  animation: fadeInPopup 0.3s ease;
+}
+
+@keyframes fadeInPopup {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  padding: 24px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+  from {transform: translateY(20px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.popup-content h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.popup-close:hover {
+  color: var(--accent);
+}

@@ -1,0 +1,117 @@
+/* ============================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ============================ */
+
+/* TABLETE — max 1024px */
+@media (max-width: 1024px) {
+
+  /* HERO GRID devine pe 1 coloană */
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* GRID PRODUSE — 3 coloane */
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* TABLETE MICI / TELEFOANE MARI — max 768px */
+@media (max-width: 768px) {
+
+  /* GRID PRODUSE — 2 coloane */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ABOUT section — 1 coloană */
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE — max 500px */
+@media (max-width: 500px) {
+
+  /* AFIȘEAZĂ HAMBURGER MENU */
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* NAV DROPDOWN (hamburger) */
+  .nav nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: min(280px, 90vw);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* GRID PRODUSE — 1 coloană */
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .flashcard img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .flashcard {
+    padding: 10px;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+/* ===== GRID RESPONSIVE ===== */
+
+/* TELEFON — 2 coloane */
+@media (max-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .flashcard img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* TABLETĂ — 3 coloane */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px;
+  }
+}
+
+/* DESKTOP — 4 coloane (default) */
+@media (min-width: 1025px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

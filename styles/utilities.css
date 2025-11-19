@@ -1,0 +1,103 @@
+/* ============================
+   SECȚIUNI GENERALE
+============================ */
+
+.sec-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sec-head h2 {
+  font-size: 26px;
+  color: var(--text);
+}
+
+.sec-head p {
+  color: var(--muted);
+}
+
+/* ============================
+   PARTNERS SECTION (homepage)
+============================ */
+
+.partners {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.partners-title {
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.partners-sub {
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.partner-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.partner-card img {
+  width: 90%;
+  height: auto;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: all 0.25s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+}
+
+.partner-card:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* ============================
+   HELPER / UTILITY CLASSES
+============================ */
+
+.text-center { 
+  text-align: center; 
+}
+
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mb-20 { margin-bottom: 20px; }
+
+.hidden { display: none !important; }
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow);
+}
